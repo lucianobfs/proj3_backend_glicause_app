@@ -19,6 +19,7 @@ const UserSchema = new Schema({
     default: "USER",
   },
   glucose: [{ type: mongoose.Types.ObjectId, ref: "Glucose" }],
+  blogPost: [{ type: mongoose.Types.ObjectId, ref: "BlogPost" }],
 });
 
 const UserModel = model("User", UserSchema);
