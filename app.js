@@ -14,12 +14,12 @@ app.use(cors({ origin: process.env.REACT_APP_URL }));
 const userRouter = require("./routes/user.routes");
 app.use("/api", userRouter);
 
-const glucoseRouter = require("./routes/glucose.routes")
-app.use("/api", glucoseRouter)
+const glucoseRouter = require("./routes/glucose.routes");
+app.use("/api", glucoseRouter);
 
-
+const blogPostRouter = require("./routes/blogPost.routes");
+app.use("/api", blogPostRouter);
 
 app.listen(Number(process.env.PORT), () =>
   console.log(`Server up and running at port ${process.env.PORT}`)
 );
- 

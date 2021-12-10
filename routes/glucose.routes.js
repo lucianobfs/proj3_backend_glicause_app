@@ -115,7 +115,7 @@ router.delete("/glucose/:id", isAuthenticated, attachCurrentUser, async (req, re
   try {
     const result = await GlucoseModel.deleteOne({ _id: req.params.id });
 
-    // const deletedGlucose = await UserModel.glucose.deleteOne({_id: req.params.id})
+    // const deletedGlucose = await UserModel.findOneAndUpdate({_id: req.params.id}, )
 
     if (result.deletedCount < 1) {
       return res.status(404).json({ msg: "Produto não encontrado" });
