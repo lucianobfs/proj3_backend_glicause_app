@@ -15,7 +15,7 @@ const UserSchema = new Schema({
   role: {
     type: String,
     enum: ["ADMIN", "USER"],
-    required: true,
+    required: false,
     default: "USER",
   },
   glucose: [{ type: mongoose.Types.ObjectId, ref: "Glucose" }],
