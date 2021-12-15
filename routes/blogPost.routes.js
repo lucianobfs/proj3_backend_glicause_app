@@ -14,23 +14,23 @@ const attachCurrentUser = require("../middlewares/attachCurrentUser");
 const isAdmin = require("../middlewares/isAdmin");
 const UserModel = require("../models/User.model");
 
-// // Upload de arquivos no Cloudinary
-// router.post(
-//     "/upload",
-//     isAuthenticated,
-//     attachCurrentUser,
-//     isAdmin,
-//     uploader.single("picture"),
-//     (req, res) => {
-//         if (!req.file) {
-//             return res.status(500).json({ msg: "Upload de arquivo falhou." });
-//         }
+// Upload de arquivos no Cloudinary
+router.post(
+    "/upload",
+    isAuthenticated,
+    attachCurrentUser,
+    isAdmin,
+    uploader.single("picture"),
+    (req, res) => {
+        if (!req.file) {
+            return res.status(500).json({ msg: "Upload de arquivo falhou." });
+        }
 
-//         console.log(req.file);
+        console.log(req.file);
 
-//         return res.status(201).json({ url: req.file.path });
-//     }
-// );
+        return res.status(201).json({ url: req.file.path });
+    }
+);
 
 router.post(
   "/createPost",
@@ -82,7 +82,7 @@ router.get(
       // Buscar as informações no banco
       const details = await BlogPostModel.findOne({ _id: req.params.id });
 
-      // Verificar se o banco encontrou o produto
+      // Verificar se o banco encontrou
       if (!details) {
         return res.status(404).json({ msg: "Post not found." });
       }
